@@ -142,7 +142,7 @@
                 if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
             return fmt;
     }
-    setInterval("document.getElementById('dateTime').innerHTML = (new Date()).format('yyyy-MM-dd hh:mm:ss');", 1000);
+    setInterval("document.getElementById('dateTime').innerHTML = (new Date()).format('yyyy年-MM月-dd日 hh时:mm分:ss秒');", 1000);
 </script>
 <style>
     .gradient-text {
@@ -167,11 +167,5 @@
     .gradient-text {
         animation: gradientText 300s infinite linear;
         -webkit-animation: gradientText 300s infinite linear;
-    }
-
-    .box {
-        width: 100%;
-        height: 360px;
-        border: 1px solid red;
     }
 </style>
