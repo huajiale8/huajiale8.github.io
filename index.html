@@ -46,11 +46,13 @@
                     <h1 class="panel-cover__title panel-title iUp">
                         <a href="#" title="Dmego Home ">花花</a>
                     </h1>
-                    <p class="panel-cover__subtitle panel-subtitle iUp gradient-text">Code Create Life</p>
+                    <p class="panel-cover__subtitle panel-subtitle iUp gradient-text">Code Create Life
+                    </p>
+                    <div id="dateTime"></div>
                     <hr class="panel-cover__divider iUp" />
                     <p id="description" class="panel-cover__description iUp ">如何得与凉风约, 不共尘沙一并来!
                         <br />
-                        <strong >-「中牟道中」</strong>
+                        <strong>-「中牟道中」</strong>
                     </p>
                     <div class="navigation-wrapper iUp">
                         <div>
@@ -60,8 +62,7 @@
                                         <a href="./dist/index.html" class="blog-button">游戏区</a>
                                     </li>
                                     <li class="navigation__item">
-                                        <a href="./404.html" class="blog-button"
-                                            target="_blank">待定</a>
+                                        <a href="./404.html" class="blog-button" target="_blank">待定</a>
                                     </li>
                                     <li class="navigation__item">
                                         <a href="./404.html" class="blog-button" target="_blank">待定</a>
@@ -112,7 +113,8 @@
             </div>
         </div>
         <div class="remark iUp">
-            <p class="power">生活，需要一种态度</p>
+           
+            <p class="power">生活，需要一种态度</p><br />
         </div>
     </header>
     <script type="text/javascript" src="https://unpkg.com/dmego-home-page@latest/assets/js/main.js"></script>
@@ -125,8 +127,22 @@
     window.dataLayer = window.dataLayer || [];
     function gtag () { dataLayer.push(arguments); }
     gtag('js', new Date());
-
     gtag('config', 'G-4L0GELWRT2');
+    Date.prototype.format = function (fmt) {
+        var o = {
+            "y+": this.getFullYear, //年
+                "M+": this.getMonth() + 1, //月份
+                "d+": this.getDate(), //日
+                "h+": this.getHours(), //小时
+                "m+": this.getMinutes(), //分
+                "s+": this.getSeconds() //秒
+        }
+        if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+    }
+    setInterval("document.getElementById('dateTime').innerHTML = (new Date()).format('yyyy-MM-dd hh:mm:ss');", 1000);
 </script>
 <style>
     .gradient-text {
@@ -152,7 +168,8 @@
         animation: gradientText 300s infinite linear;
         -webkit-animation: gradientText 300s infinite linear;
     }
-    .box{
+
+    .box {
         width: 100%;
         height: 360px;
         border: 1px solid red;
