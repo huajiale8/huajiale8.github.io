@@ -1,0 +1,196 @@
+ * {
+        margin: 0;
+        padding: 0;
+    }
+
+    input {
+        visibility: hidden;
+    }
+
+    /*底板背景默认为黑色*/
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background-color: #080818;
+    }
+
+    /*图片背景*/
+    .bgi {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        transition: all 1s linear;
+    }
+
+    /*放置太阳月亮的大盒子*/
+    .dayOrNight {
+        width: 100vh;
+        height: 100vh;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: 50% 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+        transition: all 1s linear;
+    }
+
+    /*太阳月亮的通用样式*/
+    .dayOrNight>img {
+        width: 300px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /*月亮*/
+    .n {
+        top: 20px;
+    }
+
+    /*太阳*/
+    .d {
+        bottom: 20px;
+    }
+
+    /*按钮的通用样式*/
+    label {
+        width: 120px;
+        height: 50px;
+        position: absolute;
+        bottom: 20px;
+        transition: all 0.5s linear;
+        line-height: 50px;
+        cursor: pointer;
+        text-align: center;
+    }
+
+    /*白昼按钮*/
+    .day {
+        left: 20px;
+        color: #080818;
+        background-color: #FFDA7E;
+        z-index: 6;
+    }
+
+    /*黑夜按钮*/
+    .night {
+        right: 20px;
+        color: #FFDA7E;
+        background-color: #080818;
+        z-index: 6;
+    }
+
+
+    .bgc {
+        width: 100%;
+        height: 100%;
+        background-color: #080818;
+        transition: all 1s linear;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    .day:hover {
+        background-color: #080818;
+        color: #FFDA7E;
+    }
+
+    .night:hover {
+        background-color: #FFDA7E;
+        color: #080818;
+    }
+
+
+    #day:checked~.dayOrNight {
+        transform: translate(-50%, -50%) rotateZ(180deg);
+    }
+
+    /*白昼按钮点击*/
+    #day:checked~.bgi {
+        filter: sepia(100%);
+    }
+
+    #day:checked~.bgc {
+        background-color: #FFDA7E;
+    }
+
+    #night:checked~.dayOrNight {
+        transform: translate(-50%, -50%) rotateZ(0deg);
+    }
+
+    /*黑夜按钮点击*/
+    #night:checked~.bgi {
+        filter: sepia(0%);
+    }
+
+    #night:checked~.bgc {
+        background-color: #080818;
+    }
+
+    /*大云朵*/
+    .cld1 {
+        width: 170px;
+        position: absolute;
+        top: 50px;
+        z-index: 1;
+        opacity: 0.5;
+        animation: cld1 14s linear infinite;
+    }
+
+    /*小云朵*/
+    .cld2 {
+        width: 100px;
+        position: absolute;
+        top: 150px;
+        z-index: 1;
+        opacity: 0.8;
+        animation: cld2 20s linear infinite;
+    }
+
+    /*中云朵*/
+    .cld3 {
+        width: 150px;
+        position: absolute;
+        top: 100px;
+        z-index: 1;
+        opacity: 0.65;
+        animation: cld3 17s linear infinite;
+    }
+
+    /*云朵对应的动画*/
+    @keyframes cld1 {
+        0% {
+            right: -200px;
+        }
+
+        100% {
+            right: 2000px;
+        }
+    }
+
+    @keyframes cld2 {
+        0% {
+            right: -600px;
+        }
+
+        100% {
+            right: 2000px;
+        }
+    }
+
+    @keyframes cld3 {
+        0% {
+            right: -1600px;
+        }
+
+        100% {
+            right: 2000px;
+        }
+    }
