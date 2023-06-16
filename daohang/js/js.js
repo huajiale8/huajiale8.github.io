@@ -470,3 +470,19 @@ tipButtons.forEach((button) => {
 		}
 	}
 })
+
+function twoNum(num) {
+	return num < 10 ? `0${num}` : num
+}
+function clock() {
+	let hours = document.getElementById('hour')
+	let minutes = document.getElementById('minutes')
+	let seconds = document.getElementById('seconds')
+	let h = new Date().getHours()
+	let m = new Date().getMinutes()
+	let s = new Date().getSeconds()
+	hours.innerHTML = twoNum(h)
+	minutes.innerHTML = twoNum(m)
+	seconds.innerHTML = twoNum(s)
+}
+setInterval(clock, 1000)

@@ -761,7 +761,7 @@ dd {
 .toubi {
 	box-sizing: border-box;
 	transform: scale(0.4);
-	position: absolute;
+	position: fixed;
 	bottom: 10px;
 	right: -20px;
 }
@@ -861,4 +861,85 @@ h2 b {
 .box:nth-child(2) .loader {
 	/* 指定步长置信动画 */
 	animation-timing-function: steps(12);
+}
+.gradient-text {
+	color: transparent;
+	background: -webkit-linear-gradient(
+		30deg,
+		#32c5ff 25%,
+		#b620e0 50%,
+		#f7b500 75%,
+		#20e050 100%
+	);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-size: auto;
+}
+
+@keyframes gradientText {
+	0% {
+		background-position: 0;
+	}
+	100% {
+		background-position: 28000px;
+	}
+}
+.gradient-text {
+	animation: gradientText 300s infinite linear;
+	-webkit-animation: gradientText 300s infinite linear;
+}
+#clock {
+	position: absolute;
+	top: 10px;
+	transform: scale(0.6);
+}
+
+#clock h2 {
+	position: relative;
+	display: block;
+	color: #fff;
+	text-align: center;
+	margin: 10px 0;
+	font-weight: 700;
+	letter-spacing: 0.4em;
+}
+#clock #time {
+	display: flex;
+}
+
+#clock #time div {
+	position: relative;
+	margin: 0 5px;
+	-webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
+}
+#clock #time div span {
+	position: relative;
+	width: 100px;
+	height: 80px;
+	background: skyblue;
+	color: #fff;
+	font-weight: 300;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 48px;
+	z-index: 10;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+}
+#clock #time div span:nth-child(2) {
+	height: 30px;
+	font-size: 4px;
+	letter-spacing: 3px;
+	font-weight: 500;
+	z-index: 9;
+	box-shadow: none;
+	background: skyblue;
+	text-transform: uppercase;
+}
+#clock #time div:last-child span {
+	background: skyblue;
+}
+#clock #time div:last-child span:nth-child(2) {
+	background: skyblue;
 }
