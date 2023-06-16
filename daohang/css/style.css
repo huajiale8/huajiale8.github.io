@@ -890,56 +890,29 @@ h2 b {
 	-webkit-animation: gradientText 300s infinite linear;
 }
 #clock {
-	position: absolute;
-	top: 10px;
-	transform: scale(0.6);
-}
-
-#clock h2 {
-	position: relative;
-	display: block;
-	color: #fff;
+	transform: scale(0.5);
+	font-family: 'Share Tech Mono', monospace;
 	text-align: center;
-	margin: 10px 0;
-	font-weight: 700;
-	letter-spacing: 0.4em;
-}
-#clock #time {
-	display: flex;
+	position: absolute;
+	left: 0%;
+	top: 0%;
+	color: #000000;
+	text-shadow: 0 0 20px #000000, 0 0 20px rgba(255, 1, 1, 0);
 }
 
-#clock #time div {
-	position: relative;
-	margin: 0 5px;
-	-webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
+#clock .time {
+	letter-spacing: 0.05em;
+	font-size: 80px;
+	padding: 5px 0;
 }
-#clock #time div span {
-	position: relative;
-	width: 100px;
-	height: 80px;
-	background: skyblue;
-	color: #fff;
-	font-weight: 300;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	font-size: 48px;
-	z-index: 10;
-	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2);
+
+#clock .date {
+	letter-spacing: 0.1em;
+	font-size: 24px;
 }
-#clock #time div span:nth-child(2) {
-	height: 30px;
-	font-size: 4px;
-	letter-spacing: 3px;
-	font-weight: 500;
-	z-index: 9;
-	box-shadow: none;
-	background: skyblue;
-	text-transform: uppercase;
-}
-#clock #time div:last-child span {
-	background: skyblue;
-}
-#clock #time div:last-child span:nth-child(2) {
-	background: skyblue;
+
+#clock .text {
+	letter-spacing: 0.1em;
+	font-size: 12px;
+	padding: 20px 0 0;
 }

@@ -413,9 +413,6 @@ tipButtons.forEach((button) => {
 			'--coin-rotation-multiplier',
 			percentageCompleted * coin.sideRotationCount
 		)
-
-		// Calculate the scale and position values for the different coin faces
-		// The math uses sin/cos wave functions to similate the circular motion of 3D spin
 		coin.style.setProperty(
 			'--front-scale-multiplier',
 			Math.max(Math.cos(coin.angle), 0)
@@ -470,19 +467,40 @@ tipButtons.forEach((button) => {
 		}
 	}
 })
+var week = [
+	'星期日',
+	'星期一',
+	'星期二',
+	'星期三',
+	'星期四',
+	'星期五',
+	'星期六',
+]
+var timerID = setInterval(updateTime, 1000) // 每隔1秒执行一次
+updateTime()
 
-function twoNum(num) {
-	return num < 10 ? `0${num}` : num
+function updateTime() {
+	var cd = new Date()
+	document.getElementById('time').innerHTML =
+		zeroPadding(cd.getHours(), 2) +
+		':' +
+		zeroPadding(cd.getMinutes(), 2) +
+		':' +
+		zeroPadding(cd.getSeconds(), 2)
+	document.getElementById('date').innerHTML =
+		zeroPadding(cd.getFullYear(), 4) +
+		'-' +
+		zeroPadding(cd.getMonth() + 1, 2) +
+		'-' +
+		zeroPadding(cd.getDate(), 2) +
+		' ' +
+		week[cd.getDay()]
 }
-function clock() {
-	let hours = document.getElementById('hour')
-	let minutes = document.getElementById('minutes')
-	let seconds = document.getElementById('seconds')
-	let h = new Date().getHours()
-	let m = new Date().getMinutes()
-	let s = new Date().getSeconds()
-	hours.innerHTML = twoNum(h)
-	minutes.innerHTML = twoNum(m)
-	seconds.innerHTML = twoNum(s)
+
+function zeroPadding(num, digit) {
+	var zero = ''
+	for (var i = 0; i < digit; i++) {
+		zero += '0'
+	}
+	return (zero + num).slice(-digit)
 }
-setInterval(clock, 1000)
